@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>PM SHRI KV ANANTAPUR Results</title>
+    <style>
+        body {
+            font-family: DejaVu Sans, Arial, sans-serif;
+            font-size: 10pt;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20pt;
+        }
+
+            .header h1 {
+                color: #004080;
+                font-size: 20pt;
+                margin: 0 0 5pt 0;
+                font-weight: bold;
+            }
+
+            .header h2 {
+                color: #004080;
+                font-size: 14pt;
+                margin: 0;
+            }
+
+        .timestamp {
+            text-align: center;
+            margin-top: 10pt;
+            font-size: 9pt;
+            color: #666;
+        }
+
+        .section {
+            margin-bottom: 20pt;
+            page-break-inside: avoid;
+        }
+
+            .section h3 {
+                color: #004080;
+                border-bottom: 2pt solid #004080;
+                padding-bottom: 5pt;
+                margin-bottom: 10pt;
+                font-size: 12pt;
+            }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 10pt 0;
+        }
+
+        th, td {
+            border: 1.5pt solid #333;
+            padding: 6pt 3pt;
+            text-align: center;
+            font-size: 9pt;
+        }
+
+        th {
+            background: #004080 !important;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>PM SHRI KV ANANTAPUR</h1>
+        <h2>CLASS 10th RESULT ANALYSIS</h2>
+        <p class="timestamp">Generated: {{ "now"|strftime("%d %B %Y, %I:%M %p") }}</p>
+    </div>
+
+    <div class="section">
+        <h3>📈 Subject-Wise Grade Distribution</h3>
+        {{ subject_table | safe }}
+    </div>
+
+    <div class="section">
+        <h3>🎯 Overall Result Analysis (6 Subjects)</h3>
+        {{ overall_table | safe }}
+    </div>
+</body>
+</html>

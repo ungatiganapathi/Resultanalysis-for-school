@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>PM SHRI KV ANANTAPUR - Result Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        .header {
+            text-align: center;
+            background: #004080;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+            .header h1 {
+                margin: 0;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .header h2 {
+                margin: 5px 0 0 0;
+                font-size: 22px;
+                font-weight: normal;
+            }
+
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+            .section h3 {
+                color: #004080;
+                border-bottom: 2px solid #004080;
+                padding-bottom: 10px;
+            }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        th {
+            background: #004080;
+            color: white;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .summary {
+            background: #e7f3ff;
+            border: 1px solid #b3d9ff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-box {
+            background: #004080;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: #004080;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+            .back-link:hover {
+                background: #003366;
+            }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>PM SHRI KV ANANTAPUR</h1>
+        <h2>Result Analysis - Class 10th</h2>
+    </div>
+
+    <div class="content">
+        <div class="summary">
+            <h3 style="margin-top: 0; color: #004080;">📊 Quick Summary ({{ df_shape[0] }} Students)</h3>
+            <div class="summary-grid">
+                <div class="stat-box">On Roll<br><strong>{{ stats.onroll }}</strong></div>
+                <div class="stat-box">Absent<br><strong>{{ stats.absent }}</strong></div>
+                <div class="stat-box">Passed<br><strong>{{ stats.passed }}</strong></div>
+                <div class="stat-box">Failed<br><strong>{{ stats.failed }}</strong></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>📈 Subject-Wise Grade Distribution</h3>
+            <small>Appeared = Total - Zeros - AB | Passed = ≥33% | Grades based on valid scores</small>
+            {{ subject_table | safe }}
+        </div>
+
+        <div class="section">
+            <h3>🎯 Overall Result Analysis</h3>
+            <small>Failed = Any subject (<33%) OR Absent | Overall % = Average of 5 subjects</small>
+            {{ overall_table | safe }}
+        </div>
+
+        <a href="/" class="back-link">← Analyze Another File</a>
+    </div>
+</body>
+</html>
